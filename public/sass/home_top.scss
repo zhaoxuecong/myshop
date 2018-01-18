@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+body{
+    font: 12px "微软雅黑";
+}
+.top{
+    height: 76px;
+    background: #303030;
+    .logo{
+        margin-left: 30px;
+        margin-top: 20px;
+        width: 262px;
+        height: 45px;
+        float: left;
+    }
+    .lists{
+        width: 1000px;
+        height: 75px;
+        position: absolute;
+        text-align: center;
+        float: right;
+        right: 0;
+        ul li{
+            float: right;
+            width: 82px;
+            height: 82px;
+            a{
+                width: 82px;
+                height: 67px;
+                display: block;
+                padding-top: 8px;
+                text-align: center;
+                color: #fff;
+                img{
+                    display: block;
+                    height: 35px;
+                    margin: auto;
+                    border: none;
+                }
+                span{
+                    display: block;
+                    margin-top: 6px;
+                }
+            }
+            a:hover{
+                background: #404040;
+            }
+        }
+        .template{
+            width: 102px;
+            a{
+                color: #ff0;
+                width: 102px;
+            }
+        }
+    }
+}
+.nav{
+    height: 41px;
+    border-bottom: 1px solid #212121;
+    background: #575757;
+    ul{
+        margin-left: 15px;
+        li{
+            float: left;
+            display: block;
+            height: 41px;
+            line-height: 41px;
+            position: relative;
+            a{
+                float: left;
+                padding: 0 12px;
+                display: block;
+                img{
+                    border: none;
+                    vertical-align: middle;
+                }
+                span{
+                    margin-left: 10px;
+                }
+                .num{
+                    width: 32px;
+                    height: 16px;
+                    line-height: 16px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-align: center;
+                    background: url(/images/home/index-11_22.png) no-repeat ;
+                }
+            }
+            .rim{
+                width: 0px;
+                height: 13px;
+                display: inline-block;
+                margin-top: 15px;
+                border-left: 1px solid #303030;
+                border-right: 1px solid #656565;
+            }
+        }
+        li:hover a{
+            background: #454545;
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="/css/login.css"/>
+<link rel="stylesheet" type="text/css" href="/iconfont/iconfont.css">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="login-body">
+		<div class="logo-hd">
+			<img src="/images/login/shopex.png" />
+		</div>
+		<div class="center-wrap">
+			<div class="login-center clearfix">
+				<img src="/images/login/ecshop-logo.png" />
+			</div>
+			<div class="message">
+				<div class="login-panel">
+					<div class="controls first">
+						<i class="iconfont icon-xingmingyonghumingnicheng"></i>
+						<input id="username" type="text" placeholder="用户名" />
+					</div>
+					<div class="controls two">
+						<i class="iconfont icon-mima"></i>
+						<input id="psw" type="password" placeholder="密码" />
+					</div>
+					<div class="controls third">
+						<i class="iconfont icon-yanzhengma2"></i>
+						<input id="capital" type="text" placeholder="验证码" />
+						<div class="number-code"></div>
+					</div>
+					<div class="controls last">
+						<input class="btn" type="submit" value="登录" />
+					</div>
+					<div class="controls bside">
+						<input id="remember" name="remember" type="checkbox" />
+						<label>保存登录信息</label>
+						<a class="link-forget" href="javascript:;">忘记密码？</a>
+						<a class="link-home" href="javascript:;">去店铺首页>></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+
+	//生成验证码
+	function fnCheck(){
+		var str="";
+		for(var i=0;i<4;i++){
+			var arr=[];
+			arr.push([parseInt(Math.random()*9+1)]);
+			
+			arr.push(String.fromCharCode(parseInt(Math.random()*26)+65));
+			str+=arr[parseInt(Math.random()*2)];
+		}
+		$(".number-code").html(str);
+	}
+	fnCheck();
+	$(".number-code").click(fnCheck);
+	
+	$(".btn").click(function(){
+		var Username = $("#username").val();
+		var Capital = $("#capital").val();
+		if(Username == "" && Capital == ""){
+			alert("管理员用户名不能为空！您没有输入验证码");
+		}else if(Username == ""){
+			alert("管理员用户名不能为空")
+		}else if(Capital == ""){
+			alert("您没有输入验证码");
+		}
+		$.ajax({
+			url: "/api/login4ajax",
+			type: "post",
+			data: {
+				username: $("#username").val(),
+				psw: $("#psw").val(),
+				num: $("#capital").val().toUpperCase(),
+				num_code:$(".number-code").html().toUpperCase()
+			},
+			success: function(res) {
+				console.log(res);
+				if(res.code == 1) {
+					alert(res.message);
+					location.href = "/home?r=" + new Date().getTime();
+				}else if(res.code == -101){
+					alert(res.message);
+					location.href = "/errorone";
+				}
+			}
+		})	
+	})
+	
+	
+	
+</script>
+</html>

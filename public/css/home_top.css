@@ -1,0 +1,122 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  font: 12px "微软雅黑";
+}
+
+.top {
+  height: 76px;
+  background: #303030;
+}
+.top .logo {
+  margin-left: 30px;
+  margin-top: 20px;
+  width: 262px;
+  height: 45px;
+  float: left;
+}
+.top .lists {
+  width: 1000px;
+  height: 75px;
+  position: absolute;
+  text-align: center;
+  float: right;
+  right: 0;
+}
+.top .lists ul li {
+  float: right;
+  width: 82px;
+  height: 82px;
+}
+.top .lists ul li a {
+  width: 82px;
+  height: 67px;
+  display: block;
+  padding-top: 8px;
+  text-align: center;
+  color: #fff;
+}
+.top .lists ul li a img {
+  display: block;
+  height: 35px;
+  margin: auto;
+  border: none;
+}
+.top .lists ul li a span {
+  display: block;
+  margin-top: 6px;
+}
+.top .lists ul li a:hover {
+  background: #404040;
+}
+.top .lists .template {
+  width: 102px;
+}
+.top .lists .template a {
+  color: #ff0;
+  width: 102px;
+}
+
+.nav {
+  height: 41px;
+  border-bottom: 1px solid #212121;
+  background: #575757;
+}
+.nav ul {
+  margin-left: 15px;
+}
+.nav ul li {
+  float: left;
+  display: block;
+  height: 41px;
+  line-height: 41px;
+  position: relative;
+}
+.nav ul li a {
+  float: left;
+  padding: 0 12px;
+  display: block;
+}
+.nav ul li a img {
+  border: none;
+  vertical-align: middle;
+}
+.nav ul li a span {
+  margin-left: 10px;
+}
+.nav ul li a .num {
+  width: 32px;
+  height: 16px;
+  line-height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  background: url(/images/home/index-11_22.png) no-repeat;
+}
+.nav ul li .rim {
+  width: 0px;
+  height: 13px;
+  display: inline-block;
+  margin-top: 15px;
+  border-left: 1px solid #303030;
+  border-right: 1px solid #656565;
+}
+.nav ul li:hover a {
+  background: #454545;
+  color: #fff;
+}
+
+/*# sourceMappingURL=home_top.css.map */

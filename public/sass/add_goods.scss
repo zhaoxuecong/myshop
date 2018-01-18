@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #335b64;
+}
+body{
+    font: 12px "微软雅黑";
+    background:url(/images/home/body_bj.jpg);
+    padding: 10px;
+    min-width: 773px;
+    cursor: auto;
+    color: #192E32;
+}
+h1{
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    font-weight: normal;
+    padding: 7px 10px;
+    margin: 0 0 10px 0;
+    overflow: hidden;
+    .action-span{
+        a{
+            float: right;
+            height: 26px;
+            line-height: 26px;
+            padding: 0 10px 0 23px;
+            background: #c43926 url(/images/home/icon_add02.gif) no-repeat 6px center;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+    .action-span1{
+        color: #4c4c4c;
+        font-size: 18px;
+        a{
+            color: #333;
+        }
+    }
+    .help_sub{
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: middle;
+        a{
+            color: #333;
+        }
+    }
+}
+
+.tab-div{
+    background: #f3f3f3;
+    border: 1px solid #d7d7d7;
+    margin: 0 0 10px 0;
+    padding: 1px;
+    #tab-title{
+        margin-top: 0;
+        background: #efefef;
+        padding-left: 10px;
+        height: 39px;
+        p{
+            margin: 2px 0 0 0;
+            .tab-front{
+                background: #fefefe;
+                height: 39px;
+                line-height: 39px;
+                display: block;
+                float: left;
+                padding: 0 20px;
+                text-align: center;
+                cursor: pointer;
+                color: #192E32;
+            }
+            span{
+                padding: 0 20px;
+                text-align: center;
+                font-size: 14px;
+                display: block;
+                float: left;
+                color: #787878;
+                line-height: 39px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+#tab-body{
+    padding: 10px;
+    background: #fefefe;
+    table{
+        margin-left: 100px;
+        input{
+            margin: 5px 0;
+        }
+        .input2{
+            width: 70px;
+        }
+        select{
+            margin: 5px 0;
+        }
+        td{           
+            .goods_name{
+                float: left;
+            }
+            #font_color{
+                float: left;
+                margin: 10px 5px 0 5px;
+            }
+            .require-field{
+                margin-left: 1em;
+                font: 12px verdana;
+                color: #ff0000;
+            }
+            .notice-span{
+                color: #666;
+                display: block;
+            }
+            .special{
+                margin: 0 5px;
+                padding: 1px 5px;
+                border: 1px solid #91c4d0;
+                border-right: 2px solid #278296;
+                border-bottom: 2px solid #278296;
+                background: #ddeef2;
+                color: #335b64;
+            }
+            
+            #jia:hover{
+               color: #eb8a3d;
+               text-decoration: underline; 
+            }
+        }
+        .label{
+                text-align: right;
+                vertical-align: top;
+                padding: 5px 16px;
+                width: 30%;
+                line-height: 30px;
+                font-weight: bold;
+            } 
+    }
+    
+}
+input.btn{
+            padding: 5px 15px 5px;
+            margin: 2px 2px;
+            background: #ff3f3f;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            border: none;
+        }
+.btn-div{
+    text-align: center;
+    padding: 3px 0;
+}
+.checked{
+    display: block;
+}
+table{
+    display: none;
+}
+#detail-tab{
+    td textarea{
+        border: 1px solid #ccc;
+    }
+}
+
+
+
+
+
+#footer{
+    background: #f3f3f3 url(/images/home/th_bg.gif) repeat-x;
+    border: 1px solid #ddd;
+    padding: 15px;
+    color: #9cacae;
+    margin: 10px 0;
+    text-align: center;
+}

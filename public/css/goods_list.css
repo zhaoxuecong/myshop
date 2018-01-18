@@ -1,0 +1,138 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  font: 12px "微软雅黑";
+  background: url(/images/home/body_bj.jpg);
+  padding: 10px;
+  min-width: 773px;
+}
+
+h1 {
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  font-weight: normal;
+  padding: 7px 10px;
+  margin: 0 0 10px 0;
+  overflow: hidden;
+}
+h1 .action-span a {
+  float: right;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 10px 0 23px;
+  background: #c43926 url(/images/home/icon_add02.gif) no-repeat 6px center;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+h1 .action-span1 {
+  color: #4c4c4c;
+  font-size: 18px;
+}
+h1 .action-span1 a {
+  color: #333;
+}
+h1 .help_sub {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+h1 .help_sub a {
+  color: #333;
+}
+
+.search {
+  background: #f3f3f3 url(/images/home/th_bg.gif) repeat-x;
+  border: 1px solid #ddd;
+  padding: 5px;
+  margin: 0 0 10px 0;
+  color: #808080;
+}
+.search select, .search img, .search input {
+  vertical-align: middle;
+}
+.search .btn {
+  padding: 5px 15px;
+  margin: 2px 2px;
+  border: none;
+  background: #ff3f3f;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.list-div {
+  width: 100%;
+  padding: 0;
+}
+.list-div table {
+  width: 100%;
+  background: #ddd;
+}
+.list-div table tr th {
+  line-height: 39px;
+  background: #f3f3f3 url(/images/th_bg.gif) repeat-x;
+  white-space: nowrap;
+  font-weight: normal;
+}
+.list-div table tr th a {
+  color: #111;
+}
+.list-div td {
+  background: #fff;
+  padding: 10px;
+  line-height: 39px;
+  text-align: center;
+}
+
+#page-table {
+  width: 100%;
+  background: #ddd;
+}
+#page-table #turn-page {
+  text-align: right;
+}
+#page-table #turn-page #page-link {
+  border-left: 1px solid #999;
+  margin-left: 16px;
+  padding-left: 16px;
+}
+#page-table #turn-page #page-link a {
+  color: #192e32;
+}
+
+input.btn {
+  padding: 5px 15px 5px;
+  margin: 2px 2px;
+  border: none;
+  background: #ff3f3f;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#footer {
+  background: #f3f3f3 url(/images/home/th_bg.gif) repeat-x;
+  border: 1px solid #ddd;
+  color: #9cacae;
+  padding: 15px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/*# sourceMappingURL=goods_list.css.map */

@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<h2>你输入的验证码不正确</h2>
+			<p> <img src="/images/login/warning.gif" /> 如果你不做出选择，将在<span></span>秒后跳转到第一个链接地址</p>
+			<a href="/login">返回上一页</a>
+		</div>
+		
+	</body>
+</html>
+<script>
+	var i = 3
+	setInterval(function(){
+		
+		$("p span").html(i)
+		i--;
+		if(i == 0){
+			location.href = "/login"
+		}
+	},1000)
+	
+</script>
