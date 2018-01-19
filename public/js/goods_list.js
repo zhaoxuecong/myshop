@@ -1,40 +1,42 @@
 $(function(){
 	var pageCurrent = $(".selectPage .on").html()
-	function Gajax(){
+	function Gajax(remo){
+		
 		$.ajax({
 			type:"post",
 			url:"/api/goods_listajax",
 			data:{
 				condition: $(".keyword").val(),
 				pageNO : pageCurrent,
-				perPageCnt : $("#pageSize").val()
+				perPageCnt : $("#pageSize").val(),
+				dele : remo
 			},
 			success:function(res){
-				console.log(res)
+				//console.log(res)
 				var data = res.data
 				var tol = res.total;
 			
 				for(var key in data){
 						var str = "";
-					str += `<tr>
+					str += `<tr class="trs">
 							<td>
-								<input type="checkbox" />${data[key].id}
+								<input type="checkbox" />${data[key].num}
 							</td>
 							<td><span>${data[key].sname}</span></td>
-							<td><span>${data[key].num}</span></td>
+							<td>ECS000<span class="num">${data[key].num}</span></td>
 							<td><span>${data[key].price}</span></td>
-							<td><img src="/images/home/no.gif"/> </td>
 							<td><img src="/images/home/yes.gif"/> </td>
 							<td><img src="/images/home/yes.gif"/> </td>
 							<td><img src="/images/home/yes.gif"/> </td>
-							<td><span>${data[key].sort}</span></td>
+							<td><img src="/images/home/yes.gif"/> </td>
+							<td><span>100</span></td>
 							<td><span>${data[key].stock}</span></td>
 							<td><span>${data[key].sales}</span></td>
 							<td>
 								<a href="javascript:;"><img src="/images/home/icon_view.gif" /> </a>
 								<a href="javascript:;"><img src="/images/home/icon_edit.gif" /> </a>
 								<a href="javascript:;"><img src="/images/home/icon_copy.gif" /> </a>
-								<a href="javascript:;"><img src="/images/home/icon_trash.gif" /> </a>
+								<a class="dele" href="javascript:;"><img src="/images/home/icon_trash.gif" /> </a>
 							</td>
 						</tr>`	
 					$(".shop_list").append(str)
@@ -125,4 +127,17 @@ $(function(){
 		Gajax();
 
 	}
+	
+//	删除
+
+	//console.log($(".shop_list"))
+	$(".shop_list").on("click",".dele",function(){
+		//console.log($(this).parents("tr"))
+		var remo = $(this).parents("tr").children().children(".num").html();
+		console.log(remo)
+		$(".shop_list tr:gt(0)").remove();
+		Gajax(remo);
+		
+	})
+	
 })

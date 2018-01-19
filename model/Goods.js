@@ -2,10 +2,12 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var Goods = new Schema({
 	id     :	Number,
-	type   : String,	
+	type   : String,
+	brand  : String,
     sname  : String,
     num    : String,
     price   : String,
+    market_price : String,
     putaway : Boolean,
     perfect : Boolean,
     news : Boolean,
@@ -14,6 +16,7 @@ var Goods = new Schema({
     stock : Number,
     sales : Number,
     imgPat  : String,
+    flag : Number,
     create_date: { type: Date, default: Date.now }
 });
 // 创建model对象

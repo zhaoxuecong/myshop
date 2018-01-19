@@ -56,14 +56,14 @@
 						<tr>
 							<td class="label"><a href="javascript:;"><img src="/images/home/notice.gif" /></a>商品货号：</td>
 							<td>
-								<input type="text"/><br />
+								<input id="num" type="text"/><br />
 								<span class="notice-span">如果您不输入商品货号，系统将自动生成一个唯一的货号。</span>
 							</td>
 						</tr>
 						<tr>
 							<td class="label">商品分类：</td>
 							<td>
-								<select>
+								<select id="goods_type">
 									<option>请选择</option>
 									<option>钻石</option>
 									<option>裤子</option>
@@ -80,7 +80,7 @@
 						<tr>
 							<td class="label">商品品牌：</td>
 							<td>
-								<select>
+								<select id="brand">
 									<option>请选择</option>
 									<option>kk</option>
 									<option>溢彩年华</option>
@@ -124,14 +124,14 @@
 						<tr>
 							<td class="label">市场售价：</td>
 							<td>
-								<input type="text" value="0" />
+								<input id="market_price" type="text" value="0" />
 								<input type="button" value="取整数" />
 							</td>
 						</tr>
 						<tr>
 							<td class="label">虚拟销量：</td>
 							<td>
-								<input type="text" value="0" />
+								<input id="sales" type="text" value="0" />
 							</td>
 						</tr>
 						<tr>
@@ -181,7 +181,7 @@
 						<tr>
 							<td class="label">上传商品图片：</td>
 							<td>
-								<input type="file" />
+								<input id="goods_img" type="file" />
 								<img src="/images/home/no.gif" /><br />
 								<input type="text" value="商品图片外部URL" />
 							</td>
@@ -214,7 +214,7 @@
 						<tr>
 							<td class="label">商品重量：</td>
 							<td>
-								<input type="text" />
+								<input id="weight" type="text" />
 								<select>
 									<option>千克</option>
 									<option>克</option>
@@ -228,7 +228,7 @@
 								</a>商品库存数量：
 							</td>
 							<td>
-								<input type="text" value="1" /><br />
+								<input id="stock" type="text" value="1" /><br />
 								库存在商品为虚货或商品存在货品时为不可编辑状态，库存数值取决于其虚货数量或货品数量
 							</td>
 						</tr>
@@ -239,9 +239,9 @@
 						<tr>
 							<td class="label">加入推荐：</td>
 							<td>
-								<input type="checkbox" />精品
-								<input type="checkbox" />新品
-								<input type="checkbox" />热销
+								<input id="perfect" type="checkbox" checked="" />精品
+								<input id="news" type="checkbox" checked="" />新品
+								<input id="hot" type="checkbox" checked="" />热销
 							</td>
 						</tr>
 						<tr>
@@ -320,7 +320,7 @@
 					</tbody>
 				</table>
 				<div class="btn-div">
-					<input class="btn" type="button" value="确定" />
+					<input id="confirm" class="btn" type="button" value="确定" />
 					<input class="btn" type="reset" value="重置" />
 				</div>
 			</form>

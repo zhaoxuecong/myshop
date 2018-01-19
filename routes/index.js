@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var UserModel = require("../model/User");
 var GoodsModel = require("../model/Goods");
+var multiparty = require("multiparty");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,29 +38,85 @@ router.post('/api/login4ajax', function(req, res, next) {
 	}
 })
 
+router.post('/api/goods_upload', function(req, res, next) {
+	var form = new multiparty.Form({
+		uploadDir : "public/images/goods_img"
+	});
+	var result = {
+		code : 1,
+		message : "商品保存成功"
+	};
+	form.parse(req,function(err,body,files){
+		if(err){
+			console.log(err);
+		}
+		console.log(body);
+		var sname = body.sname[0];
+		var num = body.num[0];
+		var type = body.type[0];
+		var price = body.price[0];
+		var market_price = body.market_price[0];
+		var brand = body.brand[0];
+		var stock = body.stock[0];
+		var weight = body.weight[0];
+		var sales = body.sales[0];
+		var imgPath = files["img"][0].path.replace("public\\","");
+		var flag = 1;
+		
+		var gm = new GoodsModel();
+		gm.sname = sname;
+		gm.num = num;
+		gm.type = type;
+		gm.price = price;
+		gm.market_price = market_price;
+		gm.brand = brand;
+		gm.stock = stock;
+		gm.weight = weight;
+		gm.sales = sales;
+		gm.imgPath = imgPath;
+		gm.flag = flag;
+		gm.save(function(err){
+			if(err){
+				result.code = -101;
+				result.message = "商品保存失败"
+			}
+			res.json(result);
+		})
+	})
+	
+})
+
 router.post('/api/goods_listajax', function(req, res, next) {
 	var condition = req.body.condition;
-	console.log(condition);
+	//console.log(condition);
+	var dele = req.body.dele;
+	console.log(dele)
 	var pageNO = req.body.pageNO || 1;
 	pageNO = parseInt(pageNO);
 	var perPageCnt = req.body.perPageCnt || 10;
 	perPageCnt = parseInt(perPageCnt);
 	
-	GoodsModel.count({type:{$regex: condition}}, function(err, count){
+	GoodsModel.count({flag : 1,type:{$regex: condition}}, function(err, count){
 		console.log("数量:" + count);
-		var query = GoodsModel.find({type:{$regex: condition}});
-		query.limit(perPageCnt).skip((pageNO-1)*perPageCnt);
-		query.exec(function(err,docs){
-			//console.log(err,docs);
-			var result = {
-				total : count,
-				data : docs,
-				pageNo : pageNO
-			}
-			res.json(result)
-		})
+		var shan = GoodsModel.update({num:dele},{$set:{flag:0}},function(err){
+			var query = GoodsModel.find({flag:1,type:{$regex: condition}});
+		
+			query.limit(perPageCnt).skip((pageNO-1)*perPageCnt);
+			query.exec(function(err,docs){
+				//console.log(err,docs);
+				var result = {
+					total : count,
+					data : docs,
+					pageNo : pageNO
+				}
+				res.json(result)
+			})
+		});
+		
 	})
 })
+
+
 
 router.get('/home', function(req, res, next) {	
 	res.render('home', {});
