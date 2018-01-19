@@ -51,13 +51,13 @@
 			<option value="0">下架</option>
 		</select>
 		关键字
-		<input class="kewword" type="text" />
-		<input class="btn" type="submit" value="搜索" />
+		<input class="keyword" type="text" />
+		<input id="subtn" class="btn" type="submit" value="搜索" />
 	</div>
-	<form>
+	
 		<div class="list-div">
 			<table cellspacing="1" cellpadding="3">
-				<tbody>
+				<tbody class="shop_list">
 					<tr>
 						<th>
 							<input type="checkbox" />
@@ -96,7 +96,7 @@
 						</th>
 						<th>操作</th>
 					</tr>
-					<tr>
+					<!--<tr>
 						<td>
 							<input type="checkbox" />101
 						</td>
@@ -116,7 +116,7 @@
 							<a href="javascript:;"><img src="/images/home/icon_copy.gif" /> </a>
 							<a href="javascript:;"><img src="/images/home/icon_trash.gif" /> </a>
 						</td>
-					</tr>
+					</tr>-->
 				</tbody>
 			</table>
 			<table id="page-table" cellspacing="0">
@@ -127,14 +127,14 @@
 								总计<span id="totalRecords">0</span>
 								个记录分为<span id="totalPages">1</span>
 								页当前第<span id="pageCurrent">1</span>
-								页，每页<input id="pageSize" size="3" type="text" value="15" />
+								页，每页<input id="pageSize" size="3" type="text" value="10" />
 								<span id="page-link">
-									<a href="javascript:;">第一页</a>
-									<a href="javascript:;">上一页</a>
-									<a href="javascript:;">下一页</a>
-									<a href="javascript:;">最末页</a>
-									<select>
-										<option value="1">1</option>
+									<a class="no1" href="javascript:;">第一页</a>
+									<a class="UpPage" href="javascript:;">上一页</a>
+									<a class="NextPage" href="javascript:;">下一页</a>
+									<a class="LastPage" href="javascript:;">最末页</a>
+									<select class="selectPage">
+										<!--<option value="1">1</option>-->
 									</select>
 								</span>
 							</div>
@@ -159,7 +159,7 @@
 			</select>
 			<input id="btnSubmit" class="btn" type="submit" value="确定" />
 		</div>
-	</form>
+	
 	<div id="footer">
 		共执行7个查询，用时0.022555秒，Gzip已禁用，内存占用3.528MB<br />
 		版权所有&copy; 2005-2018 上海商派软件有限公司，并保留所有权利。

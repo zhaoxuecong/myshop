@@ -38,8 +38,28 @@ router.post('/api/login4ajax', function(req, res, next) {
 })
 
 router.post('/api/goods_listajax', function(req, res, next) {
+	var condition = req.body.condition;
+	console.log(condition);
+	var pageNO = req.body.pageNO || 1;
+	pageNO = parseInt(pageNO);
+	var perPageCnt = req.body.perPageCnt || 10;
+	perPageCnt = parseInt(perPageCnt);
 	
-}
+	GoodsModel.count({type:{$regex: condition}}, function(err, count){
+		console.log("数量:" + count);
+		var query = GoodsModel.find({type:{$regex: condition}});
+		query.limit(perPageCnt).skip((pageNO-1)*perPageCnt);
+		query.exec(function(err,docs){
+			//console.log(err,docs);
+			var result = {
+				total : count,
+				data : docs,
+				pageNo : pageNO
+			}
+			res.json(result)
+		})
+	})
+})
 
 router.get('/home', function(req, res, next) {	
 	res.render('home', {});
