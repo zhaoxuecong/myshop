@@ -22,19 +22,19 @@ $(function(){
 							<td>
 								<input type="checkbox" />${data[key].num}
 							</td>
-							<td><span>${data[key].sname}</span></td>
-							<td>ECS000<span class="num">${data[key].num}</span></td>
-							<td><span>${data[key].price}</span></td>
+							<td><span class="goods_name">${data[key].sname}</span></td>
+							<td class="nums">ECS000<span class="num">${data[key].num}</span></td>
+							<td><span class="price">${data[key].price}</span></td>
 							<td><img src="/images/home/yes.gif"/> </td>
 							<td><img src="/images/home/yes.gif"/> </td>
 							<td><img src="/images/home/yes.gif"/> </td>
 							<td><img src="/images/home/yes.gif"/> </td>
 							<td><span>100</span></td>
-							<td><span>${data[key].stock}</span></td>
-							<td><span>${data[key].sales}</span></td>
+							<td><span class="stock">${data[key].stock}</span></td>
+							<td><span class="sales">${data[key].sales}</span></td>
 							<td>
 								<a href="javascript:;"><img src="/images/home/icon_view.gif" /> </a>
-								<a href="javascript:;"><img src="/images/home/icon_edit.gif" /> </a>
+								<a class="redact" href="javascript:;"><img src="/images/home/icon_edit.gif" /> </a>
 								<a href="javascript:;"><img src="/images/home/icon_copy.gif" /> </a>
 								<a class="dele" href="javascript:;"><img src="/images/home/icon_trash.gif" /> </a>
 							</td>
@@ -137,6 +137,16 @@ $(function(){
 		console.log(remo)
 		$(".shop_list tr:gt(0)").remove();
 		Gajax(remo);
+		
+	})
+	
+	//编辑商品
+	$(".shop_list").on("click",".redact",function(){
+		
+		var sum = $(this).parents("tr").children().children(".num").html();
+		location.href='/html/redact_goods.html?id='+parseInt(sum);
+		
+		//console.log(sum);	
 		
 	})
 	

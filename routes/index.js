@@ -13,6 +13,7 @@ router.get('/login', function(req, res, next) {
   res.render('login', {});
 });
 
+//登录
 router.post('/api/login4ajax', function(req, res, next) {
 	var username = req.body.username;
 	var psw = req.body.psw;
@@ -38,6 +39,7 @@ router.post('/api/login4ajax', function(req, res, next) {
 	}
 })
 
+//添加商品
 router.post('/api/goods_upload', function(req, res, next) {
 	var form = new multiparty.Form({
 		uploadDir : "public/images/goods_img"
@@ -86,6 +88,7 @@ router.post('/api/goods_upload', function(req, res, next) {
 	
 })
 
+//获取并查找以及删除商品
 router.post('/api/goods_listajax', function(req, res, next) {
 	var condition = req.body.condition;
 	//console.log(condition);
@@ -98,7 +101,7 @@ router.post('/api/goods_listajax', function(req, res, next) {
 	
 	GoodsModel.count({flag : 1,type:{$regex: condition}}, function(err, count){
 		console.log("数量:" + count);
-		var shan = GoodsModel.update({num:dele},{$set:{flag:0}},function(err){
+		GoodsModel.update({num:dele},{$set:{flag:0}},function(err){
 			var query = GoodsModel.find({flag:1,type:{$regex: condition}});
 		
 			query.limit(perPageCnt).skip((pageNO-1)*perPageCnt);
@@ -116,6 +119,48 @@ router.post('/api/goods_listajax', function(req, res, next) {
 	})
 })
 
+//编辑商品信息
+router.post('/api/goods_redact', function(req, res, next) {
+		
+	var sum = req.body.sum;
+		
+	GoodsModel.find({flag:1,num:sum},function(err,docs){
+		
+		var result = {					
+			data : docs					
+		}
+		res.json(result)
+	})
+	
+});
+
+router.post('/api/redact_goods_upload', function(req, res, next) {
+	
+	var result = {
+		code : 1,
+		message : "商品更改成功"
+	};
+	var sname = req.body.sname;
+	var num = req.body.num;
+	var type = req.body.type;
+	var price = req.body.price;
+	var market = req.body.market;
+	var brand = req.body.brand;
+	var stock = req.body.stock;
+	var weight = req.body.weight;
+	var sales = req.body.sales;
+		
+	GoodsModel.update({flag:1,num:num},{$set:{sname:sname,type:type,price:price,market_price:market,brand:brand,stock:stock,weight:weight,sales:sales}},function(err){
+		
+		if(err){
+				result.code = -101;
+				result.message = "商品保存失败"
+			}
+		res.json(result)
+	})
+	
+});
+			
 
 
 router.get('/home', function(req, res, next) {	

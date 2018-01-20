@@ -1,3 +1,4 @@
+
 $("#tab-title .tab-back").click(function(){
 	;
 	var ind = $(this).index();
@@ -36,4 +37,8 @@ function Upload(){
 	}
 	xhr.send(form);
 }
+
+
+
+
 
