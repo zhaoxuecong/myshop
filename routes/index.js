@@ -93,17 +93,17 @@ router.post('/api/goods_listajax', function(req, res, next) {
 	var condition = req.body.condition;
 	//console.log(condition);
 	var dele = req.body.dele;
-	console.log(dele)
+	//console.log(dele)
 	var pageNO = req.body.pageNO || 1;
 	pageNO = parseInt(pageNO);
 	var perPageCnt = req.body.perPageCnt || 10;
 	perPageCnt = parseInt(perPageCnt);
 	
 	GoodsModel.count({flag : 1,type:{$regex: condition}}, function(err, count){
-		console.log("数量:" + count);
+		
 		GoodsModel.update({num:dele},{$set:{flag:0}},function(err){
 			var query = GoodsModel.find({flag:1,type:{$regex: condition}});
-		
+		console.log("数量:" + count);
 			query.limit(perPageCnt).skip((pageNO-1)*perPageCnt);
 			query.exec(function(err,docs){
 				//console.log(err,docs);

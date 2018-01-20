@@ -15,8 +15,9 @@ $("#confirm").click(function(){
 
 function Upload(){
 	var form = new FormData();
+	var num = $("#num").val() || parseInt(Math.random()*999+1)
 	form.append("sname",$(".goods_name").val());
-	form.append("num",$("#num").val());
+	form.append("num",num);
 	form.append("type",$("#goods_type").children("option:selected").val());
 	form.append("brand",$("#brand").children("option:selected").val());
 	form.append("price",$("#shop_price").val());

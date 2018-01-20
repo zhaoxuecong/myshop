@@ -40,11 +40,10 @@ $(function(){
 							</td>
 						</tr>`	
 					$(".shop_list").append(str)
+					
 				}
 				
-				$("#totalRecords").html(tol);
-				var PagS = Math.ceil(tol/$("#pageSize").val());
-				$("#totalPages").html(PagS);
+				
 				
 				var optionLen = $(".selectPage option").length;
 				var len = PagS-1;
@@ -58,6 +57,9 @@ $(function(){
 					$(".selectPage").children("option:gt("+len+")").remove();
 				}
 				
+				$("#totalRecords").html(tol);
+				var PagS = Math.ceil(tol/$("#pageSize").val());
+				$("#totalPages").html(PagS);
 				$("#pageCurrent").html(pageCurrent)
 			}
 		})
@@ -124,7 +126,7 @@ $(function(){
 		slectPage.addClass("on").siblings().removeClass().attr("selected",false);
 		pageCurrent = $(".selectPage .on").html()	
 		$(".shop_list tr:gt(0)").remove();
-		Gajax();
+		Gajax(remo);
 
 	}
 	
@@ -134,9 +136,11 @@ $(function(){
 	$(".shop_list").on("click",".dele",function(){
 		//console.log($(this).parents("tr"))
 		var remo = $(this).parents("tr").children().children(".num").html();
-		console.log(remo)
+		//console.log(remo)
+		alert("您确定要把商品放入回收站吗?")
 		$(".shop_list tr:gt(0)").remove();
 		Gajax(remo);
+		
 		
 	})
 	
